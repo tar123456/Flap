@@ -10,7 +10,8 @@ public class BirdScript : MonoBehaviour
     public float flapStrength = 1.0f;
     public LogicScript logic;
     public bool birdIsAlive = true;
-    
+    public float upperlimit = 20;
+    public float lowerLimit = -20;
     
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,12 @@ public class BirdScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)&& birdIsAlive)
         {
             rigidbody2D.velocity = Vector2.up * flapStrength;
+        }
+
+        if (transform.position.y > upperlimit || transform.position.y < lowerLimit)
+        {
+            logic.gameOver();
+            birdIsAlive = false;
         }
 
        

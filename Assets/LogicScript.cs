@@ -23,6 +23,11 @@ public class LogicScript : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+    public void quitGame()
+    {
+        Debug.Log("Quitting");
+        Application.Quit();
+    }
 
     public void gameOver()
     { 
