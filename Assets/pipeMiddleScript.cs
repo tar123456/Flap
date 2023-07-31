@@ -9,7 +9,7 @@ public class pipeMiddleScript : MonoBehaviour
     // Start is called before the first frame update
     public LogicScript logic;
     public int scoreIncrement;
-    public AudioClip pointClip;
+    
     
     void Start()
     {
@@ -23,12 +23,12 @@ public class pipeMiddleScript : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        AudioSource source = GetComponent<AudioSource>();
+       
         
         if (collision.gameObject.layer == 3) //birdie layer
         {
-            source.clip = pointClip;
-            source.Play();
+            FindObjectOfType<AudioManager>().play("Point"); 
+
             logic.addScore(scoreIncrement);
             
             Debug.Log("Triggered");

@@ -15,6 +15,11 @@ public class LogicScript : MonoBehaviour
     {
         playerScore = playerScore + scoreincrement;
         score.text = playerScore.ToString();
+        if (getHighScore() < playerScore)
+        {
+            PlayerPrefs.SetInt("HighScore", playerScore);
+        }
+        
     }
 
 
@@ -22,6 +27,10 @@ public class LogicScript : MonoBehaviour
     public void restartScent()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void gotoMainMenu()
+    {
+        SceneManager.LoadScene("MainMenuScene");
     }
     public void quitGame()
     {
@@ -32,5 +41,10 @@ public class LogicScript : MonoBehaviour
     public void gameOver()
     { 
         gameOverObj.SetActive(true);
+    }
+
+    int getHighScore()
+    {
+        return PlayerPrefs.GetInt("HighScore");
     }
 }
