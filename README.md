@@ -8,4 +8,4 @@ It consists of all the basic functionality of Unity 3D:
 - Collision and Triggers
 - Basic UI elements - Score, Game over screen, Main Menu
 - Particle systems
-- Audio.
+- Audio Manager (Using Singleton)
